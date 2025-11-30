@@ -28,8 +28,7 @@ Shared code: the scanning and hashing pipeline is identical in both the CLI and 
 From the current folder (`File-Deduplicator`):
 
 ```bash
-# Initialize module (first time)
-go mod init filededuplicator
+# Optional: tidy dependencies (if you changed imports)
 go mod tidy
 
 # Run the deduplicator (default SHA256) via CLI build tag
@@ -59,7 +58,8 @@ Notes:
 
 ```bash
 # From File-Deduplicator
-go mod init filededuplicator && go mod tidy
+# Optional: tidy dependencies
+go mod tidy
 go run -tags cli . --directory "/path/to/scan" --algorithm sha256
 # or with deletion
 go run -tags cli . --directory "/path/to/scan" --algorithm sha512 --delete
@@ -125,6 +125,3 @@ From the GUI project you can build a GUI binary (requires Fyne dependencies on y
 ```
 
 On macOS, Fyne can also package an app bundle; see Fyne docs for `fyne package`.
-
-## License
-Internal project. Do not redistribute without permission.
